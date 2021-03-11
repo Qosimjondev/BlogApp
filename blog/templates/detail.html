@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detail
+{% endblock%}
+
+{% block body %}
+<h1>Detail Page</h1>
+
+<div class="card" style="width: 18rem;">
+	<img src="{{post.image.url}}">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Created by {{post.author}}</h6>
+    <p class="card-text">{{post.text}}<br>
+    	<span>{{post.date|date:'m/d/Y H:i'}}</span>
+    </p>
+    
+    <a href="{% url 'edit' post.pk %}" class="btn btn-primary">Update</a>
+    <a href="{% url 'delete' post.pk %}" class="btn btn-danger" >Delete</a>
+  </div>
+
+</div>
+
+
+{% endblock %}
